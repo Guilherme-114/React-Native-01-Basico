@@ -5,11 +5,12 @@ function BoasVindas(props) {
 
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
+  const [endereco, setEndereco] = useState('');
   const [mensagem, setMensagem] = useState('Seja bem-vindo(a)!');
   const [mostraMensagem, setMostraMensagem] = useState(false);
 
   const _apresentarMensagem = () => {
-    if (!nome == '' && !sobrenome == '') {
+    if (!nome == '' && !sobrenome == '' && !endereco == '') {
       setMostraMensagem(true);
     } else {
       Alert.alert(
@@ -31,7 +32,7 @@ function BoasVindas(props) {
   return (
     <View style={styles.container}>
 
-      <Text style={styles.titulo}>Identifique-se</Text>
+      <Text style={styles.titulo}>Preencha para o localizar-mos</Text>
 
       <TextInput
         style={styles.campo}
@@ -45,6 +46,13 @@ function BoasVindas(props) {
           placeholder="Digite seu sobrenome"
           onChangeText={sobrenome => setSobrenome(sobrenome)}
           value={sobrenome}
+      />
+
+      <TextInput
+        style={styles.campo}
+        placeholder="Digite seu endereço"
+        onChangeText={endereco => setNome(endereco)}
+        value={endereco}
       />
 
       <View style={styles.botaoContainer}>
@@ -73,7 +81,7 @@ function BoasVindas(props) {
 }
 const styles = StyleSheet.create({
   container: {
-     backgroundColor: '#081a31',
+     backgroundColor: '#008B8B',
      width: 300,
      borderRadius: 5,
      padding: 10,
